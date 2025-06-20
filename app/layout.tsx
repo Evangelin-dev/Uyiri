@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Nav from './navbar/nav'
+import Topnav from './navbar/topnav'
+
 
 export const metadata: Metadata = {
   title: 'uirihealing',
@@ -14,7 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <>
+        <Topnav />
+        <Nav /> 
+        </>
+        {children}
+      </body>
     </html>
   )
 }

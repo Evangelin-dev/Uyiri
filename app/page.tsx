@@ -2,9 +2,6 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { MessageCircle, Calendar, Leaf, Heart, Sparkles } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
-
 
 export default function AyurvedicHomepage() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,98 +20,6 @@ export default function AyurvedicHomepage() {
   const greenStyle2 = "bg-light-green hover:bg-light-green/90";
   return (
     <div className="min-h-screen bg-white">
-      {/* Top Bar */}
-      <div className="bg-white border-b border-pink/20">
-        <div className="container mx-auto px-4 py-2 flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <Sparkles className="h-4 w-4 text-bright-pink animate-pulse" />
-            <span className="text-sm font-medium text-gray-700 hover:text-bright-pink transition-colors cursor-pointer">
-              👉 Introducing the 10-Day Uterus Detox Program
-            </span>
-          </div>
-          <Button
-            variant="outline"
-            size="sm"
-            className="bg-sage-green text-white border-sage-green hover:bg-sage-green/90 transition-all duration-300 hover:scale-105"
-          >
-            Visit Our Store
-          </Button>
-        </div>
-      </div>
-
-      {/* Main Navbar */}
-      <nav className="bg-white backdrop-blur-sm shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center py-4">
-            {/* Logo */}
-            <div className="flex items-center space-x-3">
-              <Image
-                src="/images/uyiri-logo.png"
-                alt="Uyiri Healing Logo"
-                width={40}
-                height={40}
-                className="object-contain"
-              />
-              <span className="text-xl font-bold text-bright-pink">uyirihealing</span>
-            </div>
-
-            {/* Navigation Links */}
-            <div className="hidden md:flex items-center space-x-8">
-              <Link
-                href="/"
-                className="text-gray-700 hover:text-bright-pink transition-all duration-300 hover:underline underline-offset-4 font-medium"
-              >
-                Home
-              </Link>
-              <Link
-                href="/services"
-                className="text-gray-700 hover:text-bright-pink transition-all duration-300 hover:underline underline-offset-4 font-medium"
-              >
-                Services
-              </Link>
-              <Link
-                href="/#signature-programs"
-                scroll={true}
-                className="text-gray-700 hover:text-bright-pink transition-all duration-300 hover:underline underline-offset-4 font-medium"
-              >
-                Signature Programs
-              </Link>
-              <Link
-                href="/testimonials"
-                className="text-gray-700 hover:text-bright-pink transition-all duration-300 hover:underline underline-offset-4 font-medium"
-              >
-                Testimonials
-              </Link>
-              <Link
-                href="/book-appointment"
-                className="text-gray-700 hover:text-bright-pink transition-all duration-300 hover:underline underline-offset-4 font-medium"
-              >
-                Book Appointment
-              </Link>
-              <Link
-                href="/blog"
-                className="text-gray-700 hover:text-bright-pink transition-all duration-300 hover:underline underline-offset-4 font-medium"
-              >
-                Blog
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-700 hover:text-bright-pink transition-all duration-300 hover:underline underline-offset-4 font-medium"
-              >
-                Contact
-              </Link>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <Button variant="ghost" size="sm" className="md:hidden">
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </Button>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
         {/* Subtle Animated Background Elements */}
