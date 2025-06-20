@@ -122,14 +122,7 @@ const BeautifulPinkBackground = () => {
           })}
         </div>
 
-        {/* Elegant Pink Ribbon */}
-        <div 
-          className="absolute bottom-20 left-0 w-full h-24 opacity-12"
-          style={{
-            background: 'linear-gradient(90deg, transparent, rgba(236, 72, 153, 0.2) 20%, rgba(244, 114, 182, 0.25) 50%, rgba(219, 39, 119, 0.15) 80%, transparent)',
-            animation: 'ribbon-wave 18s ease-in-out infinite'
-          }}
-        ></div>
+        
 
         {/* Dreamy Pink Gradient Overlay */}
         <div 
