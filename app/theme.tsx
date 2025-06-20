@@ -1,218 +1,276 @@
 'use client';
 
-
 import React from 'react';
-import { Leaf, Heart, Sparkles } from 'lucide-react';
 
-const FloatingBackground = () => {
+const BeautifulPinkBackground = () => {
   return (
-    <div className="absolute inset-0 bg-gradient-to-brfrom-rose-50 via-pink-25 to-purple-50 overflow-hidden">
-      {/* Enhanced Floating Circles with Gradient and Better Animations */}
-      <div className="absolute inset-0 z-0">
-        {/* Large Breathing Circle */}
+    <div className="absolute inset-0 bg-gradient-to-br from-pink-100 via-rose-50 to-pink-200 overflow-hidden">
+      {/* Flowing Pink Waves */}
+      <div className="absolute inset-0">
+        {/* Large Flowing Wave */}
         <div 
-          className="absolute top-20 left-10 w-32 h-32 rounded-full opacity-20"
+          className="absolute -top-32 -left-32 w-96 h-96 opacity-30"
           style={{
-            background: 'radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, rgba(236, 72, 153, 0.05) 70%)',
-            animation: 'breathe 6s ease-in-out infinite, drift 20s linear infinite'
-          }}
-        ></div>
-        
-        {/* Pulsing Orb */}
-        <div 
-          className="absolute top-60 right-20 w-24 h-24 rounded-full opacity-25"
-          style={{
-            background: 'radial-gradient(circle, rgba(219, 39, 119, 0.2) 0%, rgba(219, 39, 119, 0.02) 100%)',
-            animation: 'pulse-glow 4s ease-in-out infinite, float-right 15s ease-in-out infinite'
+            background: 'radial-gradient(circle at 30% 30%, rgba(236, 72, 153, 0.4) 0%, rgba(244, 114, 182, 0.2) 50%, transparent 80%)',
+            borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
+            animation: 'wave-morph 15s ease-in-out infinite'
           }}
         ></div>
 
-        {/* Large Morphing Circle */}
-        <div 
-          className="absolute bottom-40 left-1/4 w-40 h-40 rounded-full opacity-15"
-          style={{
-            background: 'conic-gradient(from 0deg, rgba(236, 72, 153, 0.1), rgba(219, 39, 119, 0.05), rgba(236, 72, 153, 0.1))',
-            animation: 'morph 8s ease-in-out infinite, rotate-slow 30s linear infinite'
-          }}
-        ></div>
-
-        {/* Bouncing Gradient Orb */}
-        <div 
-          className="absolute bottom-20 right-1/3 w-28 h-28 rounded-full opacity-20"
-          style={{
-            background: 'radial-gradient(ellipse at top, rgba(236, 72, 153, 0.15), rgba(219, 39, 119, 0.08))',
-            animation: 'bounce-soft 5s ease-in-out infinite, sway 12s ease-in-out infinite'
-          }}
-        ></div>
-
-        {/* Additional Ambient Circles */}
-        <div 
-          className="absolute top-1/3 right-1/4 w-20 h-20 rounded-full opacity-10"
-          style={{
-            background: 'radial-gradient(circle, rgba(236, 72, 153, 0.12) 20%, transparent 70%)',
-            animation: 'float-gentle 10s ease-in-out infinite reverse'
-          }}
-        ></div>
-
-        <div 
-          className="absolute bottom-1/3 left-1/2 w-36 h-36 rounded-full opacity-8"
-          style={{
-            background: 'conic-gradient(from 180deg, rgba(219, 39, 119, 0.08), transparent, rgba(236, 72, 153, 0.05))',
-            animation: 'spin-slow 25s linear infinite, scale-pulse 7s ease-in-out infinite'
-          }}
-        ></div>
-
-        {/* Enhanced Floating Ayurvedic Icons */}
-        <div 
-          className="absolute top-32 right-10 opacity-15"
-          style={{ animation: 'icon-float 8s ease-in-out infinite, rotate-gentle 20s linear infinite' }}
-        >
-          <Leaf className="h-12 w-12 text-pink-500 drop-shadow-sm" />
-        </div>
-        
-        <div 
-          className="absolute top-1/2 left-16 opacity-20"
-          style={{ animation: 'heart-beat 3s ease-in-out infinite, drift-up 15s ease-in-out infinite' }}
-        >
-          <Heart className="h-10 w-10 text-pink-400 drop-shadow-sm" />
-        </div>
-        
-        <div 
-          className="absolute bottom-32 right-16 opacity-18"
-          style={{ animation: 'sparkle-twinkle 4s ease-in-out infinite, bob 6s ease-in-out infinite' }}
-        >
-          <Sparkles className="h-14 w-14 text-pink-500 drop-shadow-md" />
+        {/* Cascading Pink Bubbles */}
+        <div className="absolute top-0 right-0 w-full h-full">
+          {Array.from({length: 8}).map((_, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full opacity-25"
+              style={{
+                width: `${60 + i * 20}px`,
+                height: `${60 + i * 20}px`,
+                left: `${20 + i * 10}%`,
+                top: `${10 + i * 8}%`,
+                background: `radial-gradient(circle, ${
+                  i % 2 === 0 ? 'rgba(236, 72, 153, 0.3)' : 'rgba(244, 114, 182, 0.25)'
+                } 0%, transparent 70%)`,
+                animation: `bubble-float ${8 + i * 2}s ease-in-out infinite ${i * 1.5}s`
+              }}
+            ></div>
+          ))}
         </div>
 
-        {/* Floating Dots with Trail Effect */}
+        {/* Dreamy Pink Clouds */}
         <div 
-          className="absolute top-1/3 left-1/3 opacity-12"
-          style={{ animation: 'dot-trail 12s linear infinite' }}
-        >
-          <div className="w-6 h-6 bg-gradient-to-r from-pink-400 to-pink-300 rounded-full shadow-lg"></div>
-        </div>
+          className="absolute top-1/4 left-1/3 w-80 h-40 opacity-20"
+          style={{
+            background: 'linear-gradient(135deg, rgba(236, 72, 153, 0.25) 0%, rgba(244, 114, 182, 0.15) 50%, rgba(219, 39, 119, 0.2) 100%)',
+            borderRadius: '100px 50px 80px 30px',
+            animation: 'cloud-drift 20s linear infinite'
+          }}
+        ></div>
 
         <div 
-          className="absolute top-3/4 right-1/4 opacity-10"
-          style={{ animation: 'orbit 18s linear infinite' }}
-        >
-          <div className="w-4 h-4 bg-gradient-to-br from-pink-500 to-rose-400 rounded-full"></div>
+          className="absolute bottom-1/3 right-1/4 w-64 h-32 opacity-18"
+          style={{
+            background: 'linear-gradient(45deg, rgba(244, 114, 182, 0.2) 0%, rgba(236, 72, 153, 0.12) 100%)',
+            borderRadius: '80px 100px 40px 60px',
+            animation: 'cloud-drift 25s linear infinite reverse'
+          }}
+        ></div>
+
+        {/* Swirling Pink Vortex */}
+        <div 
+          className="absolute top-1/2 right-20 w-56 h-56 rounded-full opacity-15"
+          style={{
+            background: `
+              conic-gradient(
+                from 0deg,
+                rgba(236, 72, 153, 0.3) 0deg,
+                rgba(244, 114, 182, 0.2) 90deg,
+                rgba(219, 39, 119, 0.25) 180deg,
+                rgba(236, 72, 153, 0.15) 270deg,
+                rgba(244, 114, 182, 0.3) 360deg
+              )
+            `,
+            animation: 'vortex-spin 12s linear infinite, vortex-pulse 6s ease-in-out infinite'
+          }}
+        ></div>
+
+        {/* Floating Pink Orbs */}
+        <div 
+          className="absolute bottom-40 left-1/4 w-32 h-32 rounded-full opacity-25"
+          style={{
+            background: 'radial-gradient(circle at 25% 25%, rgba(236, 72, 153, 0.4) 0%, rgba(244, 114, 182, 0.2) 60%, transparent 90%)',
+            animation: 'orb-dance 10s ease-in-out infinite'
+          }}
+        ></div>
+
+        <div 
+          className="absolute top-32 left-1/2 w-24 h-24 rounded-full opacity-30"
+          style={{
+            background: 'radial-gradient(circle, rgba(244, 114, 182, 0.35) 0%, rgba(219, 39, 119, 0.2) 70%)',
+            animation: 'orb-dance 8s ease-in-out infinite 3s'
+          }}
+        ></div>
+
+        {/* Magical Pink Sparkles */}
+        <div className="absolute inset-0">
+          {Array.from({length: 15}).map((_, i) => {
+            const positions = [
+              { left: '12%', top: '15%' }, { left: '75%', top: '8%' }, { left: '45%', top: '25%' },
+              { left: '88%', top: '35%' }, { left: '25%', top: '42%' }, { left: '65%', top: '38%' },
+              { left: '8%', top: '55%' }, { left: '82%', top: '62%' }, { left: '38%', top: '68%' },
+              { left: '92%', top: '78%' }, { left: '18%', top: '85%' }, { left: '55%', top: '82%' },
+              { left: '72%', top: '92%' }, { left: '35%', top: '5%' }, { left: '58%', top: '12%' }
+            ];
+            return (
+              <div
+                key={i}
+                className="absolute rounded-full opacity-20"
+                style={{
+                  width: `${4 + (i % 3) * 2}px`,
+                  height: `${4 + (i % 3) * 2}px`,
+                  left: positions[i].left,
+                  top: positions[i].top,
+                  background: `radial-gradient(circle, ${
+                    i % 3 === 0 ? 'rgba(236, 72, 153, 0.6)' :
+                    i % 3 === 1 ? 'rgba(244, 114, 182, 0.5)' :
+                    'rgba(219, 39, 119, 0.55)'
+                  } 0%, transparent 60%)`,
+                  animation: `sparkle-twinkle ${3 + (i % 4)}s ease-in-out infinite ${i * 0.3}s`
+                }}
+              ></div>
+            );
+          })}
         </div>
+
+        {/* Elegant Pink Ribbon */}
+        <div 
+          className="absolute bottom-20 left-0 w-full h-24 opacity-12"
+          style={{
+            background: 'linear-gradient(90deg, transparent, rgba(236, 72, 153, 0.2) 20%, rgba(244, 114, 182, 0.25) 50%, rgba(219, 39, 119, 0.15) 80%, transparent)',
+            animation: 'ribbon-wave 18s ease-in-out infinite'
+          }}
+        ></div>
+
+        {/* Dreamy Pink Gradient Overlay */}
+        <div 
+          className="absolute top-0 left-0 w-full h-1/2 opacity-8"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(244, 114, 182, 0.15), transparent)',
+            animation: 'gradient-shift 25s ease-in-out infinite'
+          }}
+        ></div>
       </div>
 
       <style jsx>{`
-        @keyframes breathe {
-          0%, 100% { transform: scale(1) translate(0, 0); }
-          50% { transform: scale(1.2) translate(10px, -5px); }
+        @keyframes wave-morph {
+          0%, 100% { 
+            transform: rotate(0deg) scale(1);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+          }
+          25% { 
+            transform: rotate(90deg) scale(1.1);
+            border-radius: 30% 60% 70% 40% / 50% 60% 30% 50%;
+          }
+          50% { 
+            transform: rotate(180deg) scale(0.9);
+            border-radius: 50% 50% 50% 50% / 60% 40% 60% 40%;
+          }
+          75% { 
+            transform: rotate(270deg) scale(1.05);
+            border-radius: 70% 30% 40% 60% / 40% 70% 60% 30%;
+          }
         }
 
-        @keyframes drift {
-          0% { transform: translateX(0) translateY(0); }
-          25% { transform: translateX(20px) translateY(-15px); }
-          50% { transform: translateX(-10px) translateY(-25px); }
-          75% { transform: translateX(-25px) translateY(-10px); }
-          100% { transform: translateX(0) translateY(0); }
+        @keyframes bubble-float {
+          0%, 100% { 
+            transform: translateY(0) scale(1);
+            opacity: 0.25;
+          }
+          25% { 
+            transform: translateY(-30px) scale(1.1);
+            opacity: 0.35;
+          }
+          50% { 
+            transform: translateY(-15px) scale(0.95);
+            opacity: 0.2;
+          }
+          75% { 
+            transform: translateY(-40px) scale(1.05);
+            opacity: 0.3;
+          }
         }
 
-        @keyframes pulse-glow {
-          0%, 100% { transform: scale(1); opacity: 0.25; }
-          50% { transform: scale(1.3); opacity: 0.4; }
+        @keyframes cloud-drift {
+          0% { 
+            transform: translateX(-20px) translateY(0);
+            opacity: 0.2;
+          }
+          25% { 
+            transform: translateX(30px) translateY(-10px);
+            opacity: 0.25;
+          }
+          50% { 
+            transform: translateX(-10px) translateY(-5px);
+            opacity: 0.18;
+          }
+          75% { 
+            transform: translateX(40px) translateY(-15px);
+            opacity: 0.22;
+          }
+          100% { 
+            transform: translateX(-20px) translateY(0);
+            opacity: 0.2;
+          }
         }
 
-        @keyframes float-right {
-          0%, 100% { transform: translateY(0) translateX(0); }
-          33% { transform: translateY(-20px) translateX(15px); }
-          66% { transform: translateY(10px) translateX(-10px); }
-        }
-
-        @keyframes morph {
-          0%, 100% { border-radius: 50%; transform: scale(1); }
-          33% { border-radius: 60% 40% 30% 70%; transform: scale(1.1); }
-          66% { border-radius: 40% 60% 70% 30%; transform: scale(0.9); }
-        }
-
-        @keyframes rotate-slow {
+        @keyframes vortex-spin {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
         }
 
-        @keyframes bounce-soft {
-          0%, 100% { transform: translateY(0) scale(1); }
-          50% { transform: translateY(-30px) scale(1.05); }
+        @keyframes vortex-pulse {
+          0%, 100% { 
+            transform: scale(1);
+            opacity: 0.15;
+          }
+          50% { 
+            transform: scale(1.1);
+            opacity: 0.22;
+          }
         }
 
-        @keyframes sway {
-          0%, 100% { transform: translateX(0); }
-          50% { transform: translateX(25px); }
-        }
-
-        @keyframes float-gentle {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-15px) rotate(180deg); }
-        }
-
-        @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-
-        @keyframes scale-pulse {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.1); }
-        }
-
-        @keyframes icon-float {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          33% { transform: translateY(-15px) rotate(5deg); }
-          66% { transform: translateY(5px) rotate(-3deg); }
-        }
-
-        @keyframes rotate-gentle {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-
-        @keyframes heart-beat {
-          0%, 100% { transform: scale(1); }
-          20% { transform: scale(1.2); }
-          40% { transform: scale(1.1); }
-        }
-
-        @keyframes drift-up {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-20px); }
+        @keyframes orb-dance {
+          0%, 100% { 
+            transform: translate(0, 0) scale(1);
+          }
+          25% { 
+            transform: translate(20px, -30px) scale(1.1);
+          }
+          50% { 
+            transform: translate(-15px, -20px) scale(0.9);
+          }
+          75% { 
+            transform: translate(30px, -10px) scale(1.05);
+          }
         }
 
         @keyframes sparkle-twinkle {
-          0%, 100% { opacity: 0.18; transform: scale(1) rotate(0deg); }
-          25% { opacity: 0.3; transform: scale(1.1) rotate(90deg); }
-          50% { opacity: 0.25; transform: scale(1.05) rotate(180deg); }
-          75% { opacity: 0.35; transform: scale(1.15) rotate(270deg); }
+          0%, 100% { 
+            transform: scale(1) rotate(0deg);
+            opacity: 0.2;
+          }
+          25% { 
+            transform: scale(1.5) rotate(90deg);
+            opacity: 0.4;
+          }
+          50% { 
+            transform: scale(0.8) rotate(180deg);
+            opacity: 0.15;
+          }
+          75% { 
+            transform: scale(1.2) rotate(270deg);
+            opacity: 0.35;
+          }
         }
 
-        @keyframes bob {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
+        @keyframes ribbon-wave {
+          0%, 100% { 
+            transform: translateY(0) scaleY(1);
+            opacity: 0.12;
+          }
+          50% { 
+            transform: translateY(-10px) scaleY(1.2);
+            opacity: 0.18;
+          }
         }
 
-        @keyframes dot-trail {
-          0% { transform: translateX(0) translateY(0) scale(1); opacity: 0.12; }
-          25% { transform: translateX(100px) translateY(-50px) scale(1.2); opacity: 0.2; }
-          50% { transform: translateX(200px) translateY(20px) scale(0.8); opacity: 0.15; }
-          75% { transform: translateX(150px) translateY(80px) scale(1.1); opacity: 0.25; }
-          100% { transform: translateX(0) translateY(0) scale(1); opacity: 0.12; }
-        }
-
-        @keyframes orbit {
-          0% { transform: translateX(0) translateY(0); }
-          25% { transform: translateX(50px) translateY(-50px); }
-          50% { transform: translateX(0) translateY(-100px); }
-          75% { transform: translateX(-50px) translateY(-50px); }
-          100% { transform: translateX(0) translateY(0); }
+        @keyframes gradient-shift {
+          0%, 100% { opacity: 0.08; }
+          50% { opacity: 0.15; }
         }
       `}</style>
     </div>
   );
 };
 
-export default FloatingBackground;
+export default BeautifulPinkBackground;

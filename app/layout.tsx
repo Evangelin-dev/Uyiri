@@ -3,6 +3,7 @@ import './globals.css'
 import Nav from './navbar/nav'
 import Topnav from './navbar/topnav'
 import FloatingBackground from './theme' // assumed to be a visual background
+import BeautifulPinkBackground from './theme'
 
 export const metadata: Metadata = {
   title: 'uirihealing',
@@ -19,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="relative">
         <div className="fixed inset-0 -z-10 pointer-events-none">
-          <FloatingBackground />
+          <BeautifulPinkBackground />
         </div>
 
         {/* UI Content */}
