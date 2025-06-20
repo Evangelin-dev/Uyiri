@@ -42,33 +42,11 @@ Preferred Time: ${formData.preferredTime}`
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen ">
       
 
       {/* Hero Section */}
-      
-      <section className="py-20 bg-white">
-        <div className="absolute inset-0 z-0">
-          {/* Floating Circles */}
-          <div className="absolute top-20 left-10 w-32 h-32 bg-pink/10 rounded-full animate-float opacity-20"></div>
-          <div className="absolute top-60 right-20 w-24 h-24 bg-pink/15 rounded-full animate-float-delayed opacity-15"></div>
-          <div className="absolute bottom-40 left-1/4 w-40 h-40 bg-pink/8 rounded-full animate-slow-pulse opacity-25"></div>
-          <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-pink/12 rounded-full animate-gentle-bounce opacity-20"></div>
-
-          {/* Floating Ayurvedic Icons */}
-          <div className="absolute top-32 right-10 animate-float opacity-10">
-            <Leaf className="h-12 w-12 text-pink" />
-          </div>
-          <div className="absolute top-1/2 left-16 animate-float-delayed opacity-15">
-            <Heart className="h-10 w-10 text-pink" />
-          </div>
-          <div className="absolute bottom-32 right-16 animate-gentle-bounce opacity-12">
-            <Sparkles className="h-14 w-14 text-pink" />
-          </div>
-          <div className="absolute top-1/3 left-1/3 animate-slow-pulse opacity-8">
-            <div className="w-6 h-6 bg-pink rounded-full"></div>
-          </div>
-        </div>
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
@@ -83,7 +61,7 @@ Preferred Time: ${formData.preferredTime}`
       </section>
 
       {/* Contact Methods & Form */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Information */}

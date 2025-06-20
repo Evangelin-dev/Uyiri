@@ -1,4 +1,6 @@
 "use client"
+
+import FloatingBackground from "../app/theme"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { MessageCircle, Calendar, Leaf, Heart, Sparkles } from "lucide-react"
@@ -19,32 +21,10 @@ export default function AyurvedicHomepage() {
   const greenStyle1 = "bg-sage-green hover:bg-sage-green/90";
   const greenStyle2 = "bg-light-green hover:bg-light-green/90";
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen ">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
-        {/* Subtle Animated Background Elements */}
-        <div className="absolute inset-0 z-0">
-          {/* Floating Circles */}
-          <div className="absolute top-20 left-10 w-32 h-32 bg-pink/10 rounded-full animate-float opacity-20"></div>
-          <div className="absolute top-60 right-20 w-24 h-24 bg-pink/15 rounded-full animate-float-delayed opacity-15"></div>
-          <div className="absolute bottom-40 left-1/4 w-40 h-40 bg-pink/8 rounded-full animate-slow-pulse opacity-25"></div>
-          <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-pink/12 rounded-full animate-gentle-bounce opacity-20"></div>
-
-          {/* Floating Ayurvedic Icons */}
-          <div className="absolute top-32 right-10 animate-float opacity-10">
-            <Leaf className="h-12 w-12 text-pink" />
-          </div>
-          <div className="absolute top-1/2 left-16 animate-float-delayed opacity-15">
-            <Heart className="h-10 w-10 text-pink" />
-          </div>
-          <div className="absolute bottom-32 right-16 animate-gentle-bounce opacity-12">
-            <Sparkles className="h-14 w-14 text-pink" />
-          </div>
-          <div className="absolute top-1/3 left-1/3 animate-slow-pulse opacity-8">
-            <div className="w-6 h-6 bg-pink rounded-full"></div>
-          </div>
-        </div>
-
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden ">
+        
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto space-y-8 animate-fade-in-up">
@@ -110,7 +90,7 @@ export default function AyurvedicHomepage() {
       </section>
 
       {/* Section 1: Introduction to Dr. Uyirinayan */}
-      <section className="py-20 bg-white">
+      <section className="py-20 ">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-12">
             <div className="animate-fade-in-up">
@@ -149,7 +129,7 @@ export default function AyurvedicHomepage() {
       </section>
 
       {/* Section 2: Signature Programs */}
-      <section id="signature-programs" className="py-20 bg-white">
+      <section id="signature-programs" className="py-20 ">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
@@ -255,7 +235,7 @@ export default function AyurvedicHomepage() {
 
 
       {/* Section 3: Patient Testimonials */}
-      <section className="py-20 bg-white">
+      <section className="py-20 ">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
@@ -313,7 +293,7 @@ export default function AyurvedicHomepage() {
       </section>
 
       {/* Section 4: Work With Me - Consultations */}
-      <section className="py-20 bg-white">
+      <section className="py-20 ">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
@@ -363,7 +343,7 @@ export default function AyurvedicHomepage() {
       </section>
 
       {/* Section 5: Book Appointment CTA Block */}
-      <section className="py-20 bg-white">
+      <section className="py-20 ">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto animate-fade-in-up">
             <h2 className="text-4xl md:text-6xl font-bold text-gray-800 mb-8">
@@ -381,7 +361,7 @@ export default function AyurvedicHomepage() {
       </section>
 
       {/* Section 6: About Dr. Uyirinayan Preview */}
-      <section className="py-20 bg-white">
+      <section className="py-20 ">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-12">
             <div className="animate-fade-in-up">
