@@ -34,6 +34,7 @@ function Nav() {
             <Link href="/blog" className="nav-link">Blog</Link>
             <Link href="/book-appointment" className="nav-link">Book Appointment</Link>
             <Link href="/contact" className="nav-link">Contact</Link>
+            
           </div>
 
           {/* Mobile Menu Button */}
