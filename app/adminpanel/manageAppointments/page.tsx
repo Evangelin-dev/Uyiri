@@ -18,13 +18,50 @@ type Appointment = {
 }
 
 export default function AppointmentsManager() {
-  const [appointments, setAppointments] = useState<Appointment[]>([])
+  const [appointments, setAppointments] = useState<Appointment[]>([
+    {
+      id: 1,
+      name: "Anjali S.",
+      email: "anjali@example.com",
+      phone: "+91 9876543210",
+      city: "Chennai",
+      preferredDate: "2024-07-01",
+      preferredTime: "morning",
+      issue: "Irregular periods and fatigue",
+      serviceType: "Video Consult",
+      status: "Pending",
+    },
+    {
+      id: 2,
+      name: "Rahul K.",
+      email: "rahul.k@example.com",
+      phone: "+91 9123456780",
+      city: "Bangalore",
+      preferredDate: "2024-07-03",
+      preferredTime: "afternoon",
+      issue: "Chronic back pain",
+      serviceType: "Clinic Visit",
+      status: "Pending",
+    },
+    {
+      id: 3,
+      name: "Meera P.",
+      email: "meera.p@example.com",
+      phone: "+91 9988776655",
+      city: "Coimbatore",
+      preferredDate: "2024-07-05",
+      preferredTime: "evening",
+      issue: "Detox program enquiry",
+      serviceType: "Join Detox Program",
+      status: "Accepted",
+    },
+  ])
 
   useEffect(() => {
-    fetch("/adminpanel/api/appointments", { cache: "no-store" })
-      .then(res => res.json())
-      .then(data => setAppointments(data))
-      .catch(() => setAppointments([]))
+    // fetch("/adminpanel/api/appointments", { cache: "no-store" })
+    //   .then(res => res.json())
+    //   .then(data => setAppointments(data))
+    //   .catch(() => setAppointments([]))
   }, [])
 
   return (
@@ -48,12 +85,14 @@ export default function AppointmentsManager() {
                 <th className="p-2 text-left">Issue</th>
                 <th className="p-2 text-left">Status</th>
                 <th className="p-2"></th>
+                <th className="p-2 text-center">Confirm</th>
+                <th className="p-2 text-center">Cancel</th>
               </tr>
             </thead>
             <tbody>
               {appointments.length === 0 && (
                 <tr>
-                  <td colSpan={10} className="p-4 text-center text-gray-400">No appointments found.</td>
+                  <td colSpan={12} className="p-4 text-center text-gray-400">No appointments found.</td>
                 </tr>
               )}
               {appointments.map((a) => (
@@ -69,6 +108,24 @@ export default function AppointmentsManager() {
                   <td className="p-2">{a.status}</td>
                   <td className="p-2">
                     <Button size="sm" variant="outline" className="text-bright-pink">View</Button>
+                  </td>
+                  <td className="p-2 text-center">
+                    <Button
+                      size="sm"
+                      variant="default"
+                      className="bg-bright-pink text-white hover:bg-dark-pink"
+                    >
+                      Confirm appointment
+                    </Button>
+                  </td>
+                  <td className="p-2 text-center">
+                    <Button
+                      size="sm"
+                      variant="destructive"
+                      className="bg-red-500 text-white hover:bg-red-600"
+                    >
+                      Cancel appointment
+                    </Button>
                   </td>
                 </tr>
               ))}
