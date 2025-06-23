@@ -1,9 +1,8 @@
 "use client"
-
-import FloatingBackground from "../app/theme"
+import Typewriter from "typewriter-effect";
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { MessageCircle, Calendar, Leaf, Heart, Sparkles } from "lucide-react"
+import { MessageCircle, Calendar, Leaf,} from "lucide-react"
 
 export default function AyurvedicHomepage() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,22 +23,38 @@ export default function AyurvedicHomepage() {
     <div className="min-h-screen ">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden ">
-        
+
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto space-y-8 animate-fade-in-up">
             {/* Main Headline */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-800 leading-tight">
-              Empowering Women Through <span className="text-bright-pink">Siddha Healing</span>
-              <br />
-              <span className="text-sage-green text-3xl md:text-4xl lg:text-5xl">
-                A 21-Year Legacy of Holistic Wellness
-              </span>
+
+
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-800">
+              <Typewriter
+                options={{
+                  delay: 40,
+                  cursor: '|',
+                  autoStart: true,
+                  loop: false,
+                }}
+                onInit={(typewriter) => {
+                  typewriter
+                    .typeString('Empowering Women Through ')
+                    .pauseFor(300)
+                    .typeString('<span class="text-bright-pink">Siddha Healing</span>')
+                    .start();
+                }}
+              />
             </h1>
+
+            <h2 className="text-sage-green text-3xl md:text-4xl lg:text-5xl font-semibold mt-4">
+              A 21-Year Legacy of Holistic Wellness
+            </h2>
 
             {/* Subheadline */}
             <p className="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Cancer, Uterine & Genetic Disorders Treated with Bio-Siddha Medicine |
+              Cancer, Uterine & Genetic Disorders Treated with Bio-Siddha Medicine
               <span className="text-sage-green font-semibold"> Global Reach, Local Roots</span>
             </p>
 
@@ -106,24 +121,22 @@ export default function AyurvedicHomepage() {
 
             {/* Animated Timeline Cards */}
             <div className="grid md:grid-cols-3 gap-8 pt-12">
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up">
-                <div className="text-4xl mb-4">✔️</div>
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex flex-col justify-center items-center text-center h-full animate-fade-in-up">
                 <h3 className="text-xl font-bold text-sage-green mb-2">21 Years Experience</h3>
                 <p className="text-gray-600">Siddha clinical practice</p>
               </div>
 
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up delay-200">
-                <div className="text-4xl mb-4">🌍</div>
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex flex-col justify-center items-center text-center h-full animate-fade-in-up delay-200">
                 <h3 className="text-xl font-bold text-sage-green mb-2">15+ Countries</h3>
                 <p className="text-gray-600">Global patient reach</p>
               </div>
 
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up delay-400">
-                <div className="text-4xl mb-4">🎓</div>
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex flex-col justify-center items-center text-center h-full animate-fade-in-up delay-400">
                 <h3 className="text-xl font-bold text-sage-green mb-2">Founder</h3>
                 <p className="text-gray-600">Bio-Sithan Institute & Uyirati Herbal Market</p>
               </div>
             </div>
+
           </div>
         </div>
       </section>
@@ -141,7 +154,7 @@ export default function AyurvedicHomepage() {
             {/* Womb Cleanse Program */}
             <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 group border border-gray-100 flex flex-col">
               <div className="text-center mb-6">
-                <div className="text-5xl mb-4 group-hover:animate-bounce">🌸</div>
+
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Womb Cleanse – 10-Day Natural Detox</h3>
               </div>
               <div className="space-y-3 mb-8 flex-grow">
@@ -150,18 +163,18 @@ export default function AyurvedicHomepage() {
                 <div className="flex justify-center mt-4">
                   <div className="bg-bright-pink/20 rounded-full px-4 py-2 text-center">
                     <span className="text-sm font-semibold text-bright-pink">
-                      🎯 For PCOD, fibroids, painful cycles
+                      For PCOD, fibroids, painful cycles
                     </span>
                   </div>
                 </div>
               </div>
               <div className="space-y-3 mt-auto">
-                <Button className="w-full bg-bright-pink hover:bg-bright-pink/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
+                <Button className="w-full bg-sage-green hover:bg-sage-green/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
                   Join Now
                 </Button>
                 <Button
                   variant="outline"
-                  className="w-full border-bright-pink text-bright-pink hover:bg-bright-pink/10 rounded-full py-3 font-semibold"
+                  className="w-full border-sage-green text-sage-green hover:bg-sage-green rounded-full py-3 font-semibold"
                 >
                   View Sample Plan
                 </Button>
@@ -171,29 +184,29 @@ export default function AyurvedicHomepage() {
             {/* Shuddhi Program */}
             <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 group border border-gray-100 flex flex-col">
               <div className="text-center mb-6">
-                <div className="text-5xl mb-4 group-hover:animate-bounce">🌿</div>
+
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">
                   Shuddhi – Ayurvedic Detox for Women's Wellness
                 </h3>
               </div>
               <div className="space-y-3 mb-8 flex-grow">
                 <p className="text-gray-600">• Hormonal balance, emotional reset</p>
-                <p className="text-gray-600">• Herbal teas, breathwork, daily guidance</p>
+                <p className="text-gray-600">• Herbal teas, breathwork, daily guidance</p><br />
                 <div className="flex justify-center mt-4">
                   <div className="bg-bright-pink/20 rounded-full px-4 py-2 text-center">
                     <span className="text-sm font-semibold text-bright-pink">
-                      🌿 For stress, skin, bloating, general wellness
+                      For stress, skin, bloating, general wellness
                     </span>
                   </div>
                 </div>
               </div>
               <div className="space-y-3 mt-auto">
-                <Button className="w-full bg-bright-pink hover:bg-bright-pink/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
+                <Button className="w-full bg-sage-green hover:bg-sage-green/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
                   Join Now
                 </Button>
                 <Button
                   variant="outline"
-                  className="w-full border-bright-pink text-bright-pink hover:bg-bright-pink/10 rounded-full py-3 font-semibold"
+                  className="w-full border-sage-green text-sage-green hover:bg-sage-green rounded-full py-3 font-semibold"
                 >
                   View Sample Plan
                 </Button>
@@ -203,27 +216,27 @@ export default function AyurvedicHomepage() {
             {/* Uterus Reset Program */}
             <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 group border border-gray-100 flex flex-col">
               <div className="text-center mb-6">
-                <div className="text-5xl mb-4 group-hover:animate-bounce">🤱</div>
+
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Uterus Reset – 10-Day Healing Journey</h3>
               </div>
               <div className="space-y-3 mb-8 flex-grow">
                 <p className="text-gray-600">• Deep womb detox + energy balancing</p>
-                <p className="text-gray-600">• Raw foods, meditations, personalized herbs</p>
+                <p className="text-gray-600">• Raw foods, meditations, personalized herbs</p><br />
                 <div className="flex justify-center mt-4">
                   <div className="bg-bright-pink/20 rounded-full px-4 py-2 text-center">
                     <span className="text-sm font-semibold text-bright-pink">
-                      🤱 Ideal for postpartum recovery, fertility prep
+                      Ideal for postpartum recovery, fertility prep
                     </span>
                   </div>
                 </div>
               </div>
               <div className="space-y-3 mt-auto">
-                <Button className="w-full bg-bright-pink hover:bg-bright-pink/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
+                <Button className="w-full bg-sage-green hover:bg-sage-green/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
                   Join Now
                 </Button>
                 <Button
                   variant="outline"
-                  className="w-full border-bright-pink text-bright-pink hover:bg-bright-pink/10 rounded-full py-3 font-semibold"
+                  className="w-full border-sage-green text-sage-green hover:bg-sage-green rounded-full py-3 font-semibold"
                 >
                   View Sample Plan
                 </Button>
@@ -305,7 +318,7 @@ export default function AyurvedicHomepage() {
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {/* Video Consult */}
             <div className="bg-white rounded-3xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100 flex flex-col justify-center items-center min-h-[320px]">
-              <div className="text-5xl mb-6">📱</div>
+
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Video Consult</h3>
               <p className="text-gray-600 mb-8 flex-grow flex items-center">
                 Connect from anywhere in the world for personalized Siddha healing guidance
@@ -317,7 +330,7 @@ export default function AyurvedicHomepage() {
 
             {/* Clinic Visit */}
             <div className="bg-white rounded-3xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100 flex flex-col justify-center items-center min-h-[320px]">
-              <div className="text-5xl mb-6">🏥</div>
+
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Clinic Visit</h3>
               <p className="text-gray-600 mb-8 flex-grow flex items-center">
                 Visit our clinic in Tamil Nadu for comprehensive in-person treatment
@@ -329,7 +342,7 @@ export default function AyurvedicHomepage() {
 
             {/* Join Detox Program */}
             <div className="bg-white rounded-3xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100 flex flex-col justify-center items-center min-h-[320px]">
-              <div className="text-5xl mb-6">💆‍♀️</div>
+
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Join Detox Program</h3>
               <p className="text-gray-600 mb-8 flex-grow flex items-center">
                 Start your healing journey with our signature detox programs
@@ -372,25 +385,25 @@ export default function AyurvedicHomepage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div className="text-3xl mb-3">✅</div>
+
                 <h3 className="font-bold text-sage-green mb-2">21 Years</h3>
                 <p className="text-sm text-gray-600">of practice</p>
               </div>
 
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div className="text-3xl mb-3">🌍</div>
+
                 <h3 className="font-bold text-sage-green mb-2">15+ Countries</h3>
                 <p className="text-sm text-gray-600">served</p>
               </div>
 
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div className="text-3xl mb-3">🧪</div>
+
                 <h3 className="font-bold text-sage-green mb-2">Founder</h3>
                 <p className="text-sm text-gray-600">Bio-Sithan Institute</p>
               </div>
 
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div className="text-3xl mb-3">🌿</div>
+
                 <h3 className="font-bold text-sage-green mb-2">Advocate</h3>
                 <p className="text-sm text-gray-600">for Siddha revival</p>
               </div>

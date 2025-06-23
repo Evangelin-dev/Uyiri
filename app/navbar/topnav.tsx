@@ -16,13 +16,15 @@ function Topnav() {
                         👉 Introducing the 10-Day Uterus Detox Program
                     </span>
                 </div>
-                <Button
-                    variant="outline"
-                    size="sm"
-                    className="bg-sage-green text-white border-sage-green hover:bg-sage-green/90 transition-all duration-300 hover:scale-105"
-                >
-                    Visit Our Store
-                </Button>
+                <button className="relative inline-flex h-12 w-48 overflow-hidden rounded-xl p-[2px] focus:outline-none focus:ring-2 focus:ring-pink-300 focus:ring-offset-2 focus:ring-offset-white">
+                    {/* Spinning Background Gradient */}
+                    <span className="absolute -inset-4 animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#fddde6_0%,#f9a8d4_50%,#fddde6_100%)] rounded-[20px]" />
+
+                    {/* Button Content */}
+                    <span className="relative inline-flex h-full w-full items-center justify-center rounded-[10px] bg-white border border-pink/60 px-6 py-2 text-sm font-medium text-black backdrop-blur-3xl z-10">
+                        Visit Our Store
+                    </span>
+                </button>
             </div>
         </div>
     </div>
