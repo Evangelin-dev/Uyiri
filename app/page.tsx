@@ -1,8 +1,9 @@
 "use client"
 import Typewriter from "typewriter-effect";
 import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
+import { Button} from "@/components/ui/button"
 import { MessageCircle, Calendar, Leaf,} from "lucide-react"
+import Link from "next/link";
 
 export default function AyurvedicHomepage() {
   const [scrolled, setScrolled] = useState(false);
@@ -60,6 +61,7 @@ export default function AyurvedicHomepage() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
+              <Link href={"/book-appointment"}> 
               <Button
                 size="lg"
                 className={`${scrolled ? greenStyle1 : pinkStyle} text-white px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg group min-w-[200px]`}
@@ -67,6 +69,7 @@ export default function AyurvedicHomepage() {
                 <Calendar className="mr-2 h-5 w-5 group-hover:animate-bounce" />
                 Book Appointment
               </Button>
+              </Link>
 
               <Button
                 size="lg"
@@ -168,17 +171,23 @@ export default function AyurvedicHomepage() {
                   </div>
                 </div>
               </div>
-              <div className="space-y-3 mt-auto">
-                <Button className="w-full bg-sage-green hover:bg-sage-green/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
+             <div className="mt-auto">
+              <Link href={"/plans/WombCleanse"}>
+                <Button className="w-full bg-sage-green hover:bg-sage-green/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold mb-3">
                   Join Now
                 </Button>
+              </Link>
+
+              <Link href={"/plans/WombCleanse"}>
                 <Button
                   variant="outline"
                   className="w-full border-sage-green text-sage-green hover:bg-sage-green rounded-full py-3 font-semibold"
                 >
                   View Sample Plan
                 </Button>
-              </div>
+              </Link>
+            </div>
+
             </div>
 
             {/* Shuddhi Program */}
@@ -200,16 +209,20 @@ export default function AyurvedicHomepage() {
                   </div>
                 </div>
               </div>
-              <div className="space-y-3 mt-auto">
-                <Button className="w-full bg-sage-green hover:bg-sage-green/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
-                  Join Now
+              <div className="mt-auto">
+                <Link href={"/plans/ShuddhiDetox"}>
+                <Button className="w-full bg-sage-green hover:bg-sage-green/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold mb-3">
+                  Join Now         
                 </Button>
+                </Link>
+                <Link href={"/plans/ShuddhiDetox"}>
                 <Button
                   variant="outline"
                   className="w-full border-sage-green text-sage-green hover:bg-sage-green rounded-full py-3 font-semibold"
                 >
                   View Sample Plan
                 </Button>
+                </Link>
               </div>
             </div>
 
@@ -230,16 +243,20 @@ export default function AyurvedicHomepage() {
                   </div>
                 </div>
               </div>
-              <div className="space-y-3 mt-auto">
-                <Button className="w-full bg-sage-green hover:bg-sage-green/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
+              <div className="mt-auto">
+                <Link href={"/plans/UterusResetPlan"}>
+                <Button className="w-full bg-sage-green hover:bg-sage-green/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold mb-3">
                   Join Now
                 </Button>
+                </Link>
+                <Link href={"/plans/UterusResetPlan"}>
                 <Button
                   variant="outline"
                   className="w-full border-sage-green text-sage-green hover:bg-sage-green rounded-full py-3 font-semibold"
                 >
                   View Sample Plan
                 </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -323,9 +340,11 @@ export default function AyurvedicHomepage() {
               <p className="text-gray-600 mb-8 flex-grow flex items-center">
                 Connect from anywhere in the world for personalized Siddha healing guidance
               </p>
+              <Link href={"/book-appointment"}>
               <Button className="w-full bg-bright-pink hover:bg-bright-pink/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
                 Book Now
               </Button>
+              </Link>
             </div>
 
             {/* Clinic Visit */}
@@ -335,9 +354,11 @@ export default function AyurvedicHomepage() {
               <p className="text-gray-600 mb-8 flex-grow flex items-center">
                 Visit our clinic in Tamil Nadu for comprehensive in-person treatment
               </p>
+              <Link href={"/book-appointment"}>
               <Button className="w-full bg-bright-pink hover:bg-bright-pink/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
                 Book Now
               </Button>
+              </Link>
             </div>
 
             {/* Join Detox Program */}
@@ -347,9 +368,11 @@ export default function AyurvedicHomepage() {
               <p className="text-gray-600 mb-8 flex-grow flex items-center">
                 Start your healing journey with our signature detox programs
               </p>
+              <Link href={"/book-appointment"}>
               <Button className="w-full bg-bright-pink hover:bg-bright-pink/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
                 Book Now
               </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -362,6 +385,7 @@ export default function AyurvedicHomepage() {
             <h2 className="text-4xl md:text-6xl font-bold text-gray-800 mb-8">
               Ready to Begin Your <span className="text-bright-pink">Healing Journey?</span>
             </h2>
+            <Link href={"/book-appointment"}>
             <Button
               size="lg"
               className="bg-gradient-to-r from-bright-pink to-sage-green hover:from-bright-pink/90 hover:to-sage-green/90 text-white px-12 py-6 text-xl rounded-full transition-all duration-500 hover:scale-110 hover:shadow-2xl animate-pulse"
@@ -369,6 +393,7 @@ export default function AyurvedicHomepage() {
               <Calendar className="mr-3 h-6 w-6" />
               Book an Appointment
             </Button>
+            </Link>
           </div>
         </div>
       </section>
