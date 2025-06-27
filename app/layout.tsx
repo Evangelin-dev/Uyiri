@@ -2,13 +2,14 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Nav from './navbar/nav'
 import Topnav from './navbar/topnav'
-import FloatingBackground from './theme' // assumed to be a visual background
 import BeautifulPinkBackground from './theme'
 
 export const metadata: Metadata = {
-  title: 'uirihealing',
-  description: 'healing',
-  generator: 'v0.dev',
+  title: 'uyirihealing',
+  description: 'UyiriHealing is a women-centered Ayurvedic wellness website offering natural healing through Siddha medicine. Led by GENETICIST.DR. G.M.UYIRINIYAN, the platform provides specialized detox programs, holistic consultations, and therapeutic services focused on uterine health, hormonal balance, and chronic conditions. The site empowers women worldwide with 21 years of healing expertise, personalized care, and accessible wellness resources—both online and in-person.',
+  verification: {
+    google: "qlE5GSmZmIsj5HkfriP1tJesWPjxxQMGawJ_mynkb6Y",
+  },
 }
 
 export default function RootLayout({

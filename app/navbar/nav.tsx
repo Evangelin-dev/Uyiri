@@ -30,7 +30,6 @@ function Nav() {
             <Link href="/" className="nav-link">Home</Link>
             <Link href="/services" className="nav-link">Services</Link>
             <Link href="/#signature-programs" scroll className="nav-link">Signature Programs</Link>
-            <Link href="/testimonials" className="nav-link">Testimonials</Link>
             <Link href="/blog" className="nav-link">Blog</Link>
             <Link href="/book-appointment" className="nav-link">Book Appointment</Link>
             <Link href="/contact" className="nav-link">Contact</Link>
