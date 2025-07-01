@@ -13,9 +13,8 @@ import {
   GraduationCap,
   Heart,
   Users,
-  Calendar,
-  MessageCircle,
 } from "lucide-react"
+import Link from "next/link"
 
 const fadeUp: Variants = {
   hidden: {
@@ -48,8 +47,6 @@ export default function ServicesPage() {
         "Ancient wisdom meets modern practice",
         "Continuing education credits available",
       ],
-      primary: "Enroll Now",
-      secondary: "View Curriculum",
     },
     {
       icon: <Heart className="h-16 w-16 text-bright-pink mx-auto" />,
@@ -62,8 +59,6 @@ export default function ServicesPage() {
         "Chronic disease support",
         "Personalized healing plans",
       ],
-      primary: "Book Session",
-      secondary: "Learn More",
     },
     {
       icon: <Users className="h-16 w-16 text-bright-pink mx-auto" />,
@@ -76,8 +71,6 @@ export default function ServicesPage() {
         "Hormonal balance therapy",
         "Customized treatment plans",
       ],
-      primary: "Book Treatment",
-      secondary: "View Packages",
     },
   ]
 
@@ -137,16 +130,12 @@ export default function ServicesPage() {
                         <p key={bIndex}>• {bullet}</p>
                       ))}
                     </div>
-                    <div className="pt-4 space-y-3">
-                      <Button className="w-full bg-bright-pink hover:bg-bright-pink/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
-                        {service.primary}
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="w-full border-bright-pink text-bright-pink hover:bg-bright-pink/10 rounded-full py-3 font-semibold"
-                      >
-                        {service.secondary}
-                      </Button>
+                    <div className="pt-4">
+                      <Link href="/book-appointment">
+                        <Button className="w-full bg-bright-pink hover:bg-bright-pink/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
+                          Book Appointment
+                        </Button>
+                      </Link>
                     </div>
                   </CardContent>
                 </Card>
