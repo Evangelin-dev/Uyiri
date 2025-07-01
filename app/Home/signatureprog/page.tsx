@@ -1,8 +1,10 @@
 "use client"
+
 import { motion, useAnimation } from "framer-motion"
 import { useRef, useEffect } from "react"
 import { useInView } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 const cardVariants = {
   hidden: { opacity: 0, y: 60, scale: 0.95 },
@@ -23,6 +25,7 @@ export default function SignatureProgramsSection() {
         "• Diet plan, herbs, voice notes, 1:1 consult",
       ],
       tag: "For PCOD, fibroids, painful cycles",
+      readMoreLink: "/WombCleanse",
     },
     {
       title: "Shuddhi – Ayurvedic Detox for Women's Wellness",
@@ -31,6 +34,7 @@ export default function SignatureProgramsSection() {
         "• Herbal teas, breathwork, daily guidance",
       ],
       tag: "For stress, skin, bloating, general wellness",
+      readMoreLink: "/shuddhi",
     },
     {
       title: "Uterus Reset – 10-Day Healing Journey",
@@ -39,6 +43,7 @@ export default function SignatureProgramsSection() {
         "• Raw foods, meditations, personalized herbs",
       ],
       tag: "Ideal for postpartum recovery, fertility prep",
+      readMoreLink: "/uterus-detox",
     },
   ]
 
@@ -58,6 +63,7 @@ export default function SignatureProgramsSection() {
               title={card.title}
               description={card.description}
               tag={card.tag}
+              readMoreLink={card.readMoreLink}
               delay={index * 0.2}
             />
           ))}
@@ -71,11 +77,13 @@ function AnimatedCard({
   title,
   description,
   tag,
+  readMoreLink,
   delay,
 }: {
   title: string
   description: string[]
   tag: string
+  readMoreLink: string
   delay: number
 }) {
   const ref = useRef(null)
@@ -93,35 +101,40 @@ function AnimatedCard({
       initial="hidden"
       animate={controls}
       variants={cardVariants}
-      className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.03] border border-gray-100 flex flex-col"
+      className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.03] border border-gray-100 flex flex-col justify-between h-full"
     >
-      <div className="text-center mb-6">
-        <h3 className="text-2xl font-bold text-gray-800 mb-4">{title}</h3>
-      </div>
+      <div className="flex flex-col h-full">
+        <div className="mb-6 text-center">
+          <h3 className="text-2xl font-bold text-gray-800 mb-4">{title}</h3>
+        </div>
 
-      <div className="space-y-3 mb-8 flex-grow">
-        {description.map((line, i) => (
-          <p key={i} className="text-gray-600">
-            {line}
-          </p>
-        ))}
-        <div className="flex justify-center mt-4">
-          <div className="bg-bright-pink/20 rounded-full px-4 py-2 text-center">
-            <span className="text-sm font-semibold text-bright-pink">{tag}</span>
+        <div className="space-y-3 mb-8 flex-grow">
+          {description.map((line, i) => (
+            <p key={i} className="text-gray-600">
+              {line}
+            </p>
+          ))}
+          <div className="flex justify-center mt-4">
+            <div className="bg-bright-pink/20 rounded-full px-4 py-2 text-center">
+              <span className="text-sm font-semibold text-bright-pink">{tag}</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="space-y-3 mt-auto">
-        <Button className="w-full bg-sage-green hover:bg-sage-green/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
-          Join Now
-        </Button>
-        <Button
-          variant="outline"
-          className="w-full border-sage-green text-sage-green hover:bg-sage-green rounded-full py-3 font-semibold"
-        >
-          View Sample Plan
-        </Button>
+        <div className="mt-auto space-y-3">
+          <Link href="/book-appointment">
+            <Button className="w-full bg-sage-green hover:bg-sage-green/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
+              Book your appointment
+            </Button>
+          </Link>
+
+          <Link
+            href={readMoreLink}
+            className="block text-center text-bright-pink font-medium hover:underline transition-all duration-300"
+          >
+            Read More →
+          </Link>
+        </div>
       </div>
     </motion.div>
   )

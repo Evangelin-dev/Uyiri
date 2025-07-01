@@ -1,6 +1,7 @@
 "use client"
 
 import { motion, Variants } from "framer-motion"
+import Link from "next/link"
 
 const fadeInUpWithDelay: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -15,18 +16,25 @@ const fadeInUpWithDelay: Variants = {
   }),
 }
 
+// Custom CTA text for each item
 const introItems = [
   {
     title: "21 Years Experience",
     desc: "Siddha clinical practice",
+    type: "book",
+    cta: "Book Now",
   },
   {
     title: "15+ Countries",
     desc: "Global patient reach",
+    type: "book",
+    cta: "Start Booking",
   },
   {
-    title: "Founder",
-    desc: "Bio-Sithan Institute & Uyirati Herbal Market",
+    title: "Video Consultant",
+    desc: "Talk to Uyiri via WhatsApp",
+    type: "video",
+    cta: "Book Now on WhatsApp",
   },
 ]
 
@@ -35,8 +43,7 @@ export default function MeetDrUyiriSection() {
     <section className="py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center space-y-12">
-
-          {/* Heading and description */}
+          {/* Heading */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -56,7 +63,7 @@ export default function MeetDrUyiriSection() {
             </p>
           </motion.div>
 
-          {/* Timeline Cards */}
+          {/* Cards */}
           <div className="grid md:grid-cols-3 gap-8 pt-12">
             {introItems.map((item, index) => (
               <motion.div
@@ -66,14 +73,35 @@ export default function MeetDrUyiriSection() {
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInUpWithDelay}
-                className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex flex-col justify-center items-center text-center h-full"
+                className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex flex-col justify-between items-center text-center h-full"
               >
-                <h3 className="text-xl font-bold text-sage-green mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.desc}</p>
+                <div>
+                  <h3 className="text-xl font-bold text-sage-green mb-2">{item.title}</h3>
+                  <p className="text-gray-600">{item.desc}</p>
+                </div>
+
+                <div className="mt-6 w-full">
+                  {item.type === "video" ? (
+                    <a
+                      href="https://api.whatsapp.com/send?phone=919941882731&text=Hi%2C%20I%20would%20like%20a%20video%20consultation"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <button className="w-full bg-sage-green hover:bg-sage-green/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
+                        {item.cta}
+                      </button>
+                    </a>
+                  ) : (
+                    <Link href="/book-appointment">
+                      <button className="w-full bg-sage-green hover:bg-sage-green/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
+                        {item.cta}
+                      </button>
+                    </Link>
+                  )}
+                </div>
               </motion.div>
             ))}
           </div>
-
         </div>
       </div>
     </section>

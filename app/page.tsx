@@ -1,55 +1,51 @@
 "use client"
-import Typewriter from "typewriter-effect";
-import { useState, useEffect } from "react"
+import Typewriter from "typewriter-effect"
+import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { MessageCircle, Calendar, Leaf, } from "lucide-react"
-import Link from "next/link";
-import TestimonialCarousel from "@/app/Home/home_testimonials/page";
-import DoctorAchievements from "@/app/Home/about_Dr. Uyirinayan/page";
-import WorkWithSection from "@/app/Home/home_card/page";
-import SignatureProgramsSection from "./Home/signatureprog/page";
-import MeetDrUyiriSection from "./Home/intro_dr.uyiri/page";
+import { MessageCircle, Calendar, Leaf } from "lucide-react"
+import Link from "next/link"
+import TestimonialCarousel from "@/app/Home/home_testimonials/page"
+import DoctorAchievements from "@/app/Home/about/page"
+import WorkWithSection from "@/app/Home/home_card/page"
+import SignatureProgramsSection from "./Home/signatureprog/page"
+import MeetDrUyiriSection from "./Home/intro_dr.uyiri/page"
 
 export default function AyurvedicHomepage() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false)
+  const detoxRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 300);
-    };
+      setScrolled(window.scrollY > 300)
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
-  const pinkStyle = "bg-bright-pink hover:bg-bright-pink/90";
-  const greenStyle1 = "bg-sage-green hover:bg-sage-green/90";
-  const greenStyle2 = "bg-light-green hover:bg-light-green/90";
+  const scrollToDetox = () => {
+    detoxRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
+  const pinkStyle = "bg-bright-pink hover:bg-bright-pink/90"
+  const greenStyle1 = "bg-sage-green hover:bg-sage-green/90"
+  const greenStyle2 = "bg-light-green hover:bg-light-green/90"
+
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden ">
-
-        {/* Hero Content */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto space-y-8 animate-fade-in-up">
-            {/* Main Headline */}
-
-
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-800">
               <Typewriter
-                options={{
-                  delay: 40,
-                  cursor: '|',
-                  autoStart: true,
-                  loop: false,
-                }}
+                options={{ delay: 40, cursor: "|", autoStart: true, loop: false }}
                 onInit={(typewriter) => {
                   typewriter
-                    .typeString('Empowering Women Through ')
+                    .typeString("Empowering Women Through ")
                     .pauseFor(300)
                     .typeString('<span class="text-bright-pink">Siddha Healing</span>')
-                    .start();
+                    .start()
                 }}
               />
             </h1>
@@ -58,13 +54,11 @@ export default function AyurvedicHomepage() {
               A 21-Year Legacy of Holistic Wellness
             </h2>
 
-            {/* Subheadline */}
             <p className="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Cancer, Uterine & Genetic Disorders Treated with Bio-Siddha Medicine
               <span className="text-sage-green font-semibold"> Global Reach, Local Roots</span>
             </p>
 
-            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
               <Link href={"/book-appointment"}>
                 <Button
@@ -77,6 +71,7 @@ export default function AyurvedicHomepage() {
               </Link>
 
               <Button
+                onClick={scrollToDetox}
                 size="lg"
                 className={`${scrolled ? greenStyle1 : pinkStyle} text-white px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg group min-w-[200px]`}
               >
@@ -84,16 +79,24 @@ export default function AyurvedicHomepage() {
                 Explore Detox Programs
               </Button>
 
-              <Button
-                size="lg"
-                className={`${scrolled ? greenStyle2 : pinkStyle} text-white px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg group min-w-[200px]`}
+              <a
+                href={`https://api.whatsapp.com/send?phone=919941882731&text=${encodeURIComponent(
+                  "Name:\nEmail ID:\nYour Enquiry:"
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="min-w-[200px] w-full sm:w-auto"
               >
-                <MessageCircle className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-                WhatsApp Now
-              </Button>
+                <Button
+                  size="lg"
+                  className={`${scrolled ? greenStyle2 : pinkStyle} text-white px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg group w-full`}
+                >
+                  <MessageCircle className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+                  WhatsApp Now
+                </Button>
+              </a>
             </div>
 
-            {/* Trust Indicators */}
             <div className="pt-12 flex flex-col sm:flex-row justify-center items-center gap-8 text-sm text-gray-600">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-bright-pink rounded-full animate-pulse"></div>
@@ -115,20 +118,22 @@ export default function AyurvedicHomepage() {
       {/* Section 1: Introduction to Dr. Uyirinayan */}
       <MeetDrUyiriSection />
 
-      {/* Section 2: Signature Programs */}
-      <SignatureProgramsSection />
+      {/* Section 2: Signature Programs with scroll target */}
+      <div ref={detoxRef}>
+        <SignatureProgramsSection />
+      </div>
 
       {/* Section 3: Patient Testimonials */}
       <TestimonialCarousel />
 
-      {/* Section 4: Work With Me - Consultations */}
+      {/* Section 4: Work With Me */}
       <WorkWithSection />
 
       {/* Section 6: About Dr. Uyirinayan Preview */}
       <DoctorAchievements />
-      
-      {/* Section 5: Book Appointment CTA Block */}
-      <section className="py-20 ">
+
+      {/* Section 5: Book Appointment CTA */}
+      <section className="py-20">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto animate-fade-in-up">
             <h2 className="text-4xl md:text-6xl font-bold text-gray-800 mb-8">
@@ -146,7 +151,6 @@ export default function AyurvedicHomepage() {
           </div>
         </div>
       </section>
-
     </div>
   )
 }

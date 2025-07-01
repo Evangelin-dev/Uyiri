@@ -3,6 +3,7 @@
 import { motion, useInView, Variants } from "framer-motion"
 import { useRef } from "react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 const pop3DVariant: Variants = {
   hidden: {
@@ -24,18 +25,21 @@ const pop3DVariant: Variants = {
 }
 
 export default function WorkWithSection() {
-  const cards = [
+  const cards: { title: string; desc: string; type: "book" | "whatsapp" }[] = [
     {
       title: "Video Consult",
       desc: "Connect from anywhere in the world for personalized Siddha healing guidance",
+      type: "whatsapp",
     },
     {
       title: "Clinic Visit",
       desc: "Visit our clinic in Tamil Nadu for comprehensive in-person treatment",
+      type: "book",
     },
     {
       title: "Join Detox Program",
       desc: "Start your healing journey with our signature detox programs",
+      type: "book",
     },
   ]
 
@@ -54,7 +58,13 @@ export default function WorkWithSection() {
           style={{ perspective: "1200px" }}
         >
           {cards.map((card, index) => (
-            <PopCard3D key={index} title={card.title} desc={card.desc} delay={index * 0.2} />
+            <PopCard3D
+              key={index}
+              title={card.title}
+              desc={card.desc}
+              type={card.type}
+              delay={index * 0.2}
+            />
           ))}
         </div>
       </div>
@@ -66,10 +76,12 @@ function PopCard3D({
   title,
   desc,
   delay,
+  type,
 }: {
   title: string
   desc: string
   delay: number
+  type: "book" | "whatsapp"
 }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
@@ -89,9 +101,25 @@ function PopCard3D({
     >
       <h3 className="text-2xl font-bold text-gray-800 mb-4">{title}</h3>
       <p className="text-gray-600 mb-8 flex-grow flex items-center text-center">{desc}</p>
-      <Button className="w-full bg-bright-pink hover:bg-bright-pink/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
-        Book Now
-      </Button>
+
+      {type === "whatsapp" ? (
+        <a
+          href="https://api.whatsapp.com/send?phone=919941882731&text=Hi%2C%20I%20would%20like%20to%20book%20a%20video%20consultation"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full"
+        >
+          <Button className="w-full bg-bright-pink hover:bg-bright-pink/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
+            Book Now
+          </Button>
+        </a>
+      ) : (
+        <Link href="/book-appointment" className="w-full">
+          <Button className="w-full bg-bright-pink hover:bg-bright-pink/90 text-white rounded-full transition-all duration-300 hover:scale-105 py-3 font-semibold">
+            Book Now
+          </Button>
+        </Link>
+      )}
     </motion.div>
   )
 }
