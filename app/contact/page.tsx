@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { MessageCircle, Mail, Phone, MapPin, Clock, Sparkles, Send, Calendar, Leaf, Heart } from "lucide-react"
+import { MessageCircle, Mail, Phone, MapPin, Clock, Send } from "lucide-react"
 import { useState } from "react"
 
 export default function ContactPage() {
@@ -23,28 +23,18 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Contact form submitted:", formData)
-    // Handle form submission logic here
-  }
-
   const handleWhatsApp = () => {
-    const message = `Hello Dr. Uyirinayan, I would like to inquire about your services. 
-    
-Name: ${formData.name}
-Issue: ${formData.issue}
+    const message = `Name: ${formData.name}
+Health Issue: ${formData.issue}
 City: ${formData.city}
 Preferred Time: ${formData.preferredTime}`
 
-    const whatsappUrl = `https://wa.me/+919876543210?text=${encodeURIComponent(message)}`
+    const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, "_blank")
   }
 
   return (
-    <div className="min-h-screen ">
-      
-
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -97,7 +87,7 @@ Preferred Time: ${formData.preferredTime}`
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-800">Email</h3>
-                      <p className="text-gray-600">hello@uyirihealing.com</p>
+                      <p className="text-gray-600">druyiriniyan@gmail.com</p>
                       <p className="text-sm text-gray-500">Detailed inquiries & consultations</p>
                     </div>
                   </div>
@@ -110,7 +100,8 @@ Preferred Time: ${formData.preferredTime}`
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-800">Phone</h3>
-                      <p className="text-gray-600">+91 98765 43210</p>
+                      <p className="text-gray-600">+91 93858 18718</p>
+                      <p className="text-gray-600">+91 99418 82731</p>
                       <p className="text-sm text-gray-500">Direct consultation booking</p>
                     </div>
                   </div>
@@ -123,7 +114,10 @@ Preferred Time: ${formData.preferredTime}`
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-800">Clinic Address</h3>
-                      <p className="text-gray-600">Bio-Sithan Institute</p>
+                      <p className="text-gray-600">NO: 112, SUBRAMANYA SAMY NAGAR,
+                        SAMMANDHAM NAGAR MAIN ROAD,
+                        KUNDRATHUR, CHENNΑΙ -600069
+                      </p>
                       <p className="text-gray-600">Tamil Nadu, India</p>
                       <p className="text-sm text-gray-500">In-person consultations available</p>
                     </div>
@@ -162,11 +156,19 @@ Preferred Time: ${formData.preferredTime}`
                   <CardDescription>Fill out the form below and we'll get back to you soon</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form
+                    action="https://formsubmit.co/druyiriniyan@gmail.com"
+                    method="POST"
+                    className="space-y-6"
+                  >
+                    <input type="hidden" name="_captcha" value="false" />
+                    <input type="hidden" name="_next" value="https://uyirihealing.com/thank-you" />
+
                     <div className="space-y-2">
                       <Label htmlFor="name">Name *</Label>
                       <Input
                         id="name"
+                        name="name"
                         value={formData.name}
                         onChange={(e) => handleInputChange("name", e.target.value)}
                         placeholder="Enter your full name"
@@ -178,9 +180,10 @@ Preferred Time: ${formData.preferredTime}`
                       <Label htmlFor="issue">Health Issue/Concern *</Label>
                       <Textarea
                         id="issue"
+                        name="issue"
                         value={formData.issue}
                         onChange={(e) => handleInputChange("issue", e.target.value)}
-                        placeholder="Describe your health concern or what you'd like to discuss..."
+                        placeholder="Describe your health concern..."
                         rows={4}
                         required
                       />
@@ -190,6 +193,7 @@ Preferred Time: ${formData.preferredTime}`
                       <Label htmlFor="city">City *</Label>
                       <Input
                         id="city"
+                        name="city"
                         value={formData.city}
                         onChange={(e) => handleInputChange("city", e.target.value)}
                         placeholder="Enter your city"
@@ -199,7 +203,7 @@ Preferred Time: ${formData.preferredTime}`
 
                     <div className="space-y-2">
                       <Label htmlFor="time">Preferred Time</Label>
-                      <Select onValueChange={(value) => handleInputChange("preferredTime", value)}>
+                      <Select onValueChange={(value) => handleInputChange("preferredTime", value)} name="preferredTime">
                         <SelectTrigger>
                           <SelectValue placeholder="Select preferred time" />
                         </SelectTrigger>
@@ -210,6 +214,11 @@ Preferred Time: ${formData.preferredTime}`
                           <SelectItem value="flexible">Flexible</SelectItem>
                         </SelectContent>
                       </Select>
+                      <input
+                        type="hidden"
+                        name="preferredTime"
+                        value={formData.preferredTime}
+                      />
                     </div>
 
                     <div className="space-y-3">

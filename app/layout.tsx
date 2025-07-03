@@ -2,14 +2,25 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Nav from './navbar/nav'
 import Topnav from './navbar/topnav'
-import FloatingBackground from './theme' // assumed to be a visual background
 import BeautifulPinkBackground from './theme'
+import Footer from './footer/page'
 
 export const metadata: Metadata = {
-  title: 'uirihealing',
-  description: 'healing',
-  generator: 'v0.dev',
-}
+  title: "Siddha Doctor for Women’s Health | Uterus Detox & Cancer Care – Dr. Uyiriniyan",
+  description:
+    "Dr. Uyiriniyan is a Siddha doctor and health coach with 21 years of experience treating uterine disorders, cancer, and genetic illnesses. Book your consultation now.",
+  keywords: [
+    "Siddha doctor",
+    "uterus detox",
+    "PCOD remedy",
+    "ayurveda for women",
+    "natural cancer treatment",
+  ],
+  verification: {
+    google: "qlE5GSmZmIsj5HkfriP1tJesWPjxxQMGawJ_mynkb6Y",
+  },
+};
+
 
 export default function RootLayout({
   children,
@@ -19,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="relative">
+        {/* Background Layer */}
         <div className="fixed inset-0 -z-10 pointer-events-none">
           <BeautifulPinkBackground />
         </div>
@@ -27,7 +39,10 @@ export default function RootLayout({
         <Topnav />
         <Nav />
         {children}
+
+        {/* Footer */}
+        <Footer />
       </body>
     </html>
-  )
+  );
 }
