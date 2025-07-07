@@ -6,9 +6,9 @@ import BeautifulPinkBackground from './theme'
 import Footer from './footer/page'
 
 export const metadata: Metadata = {
-  title: "Siddha Doctor for Women’s Health | Uterus Detox & Cancer Care – Dr. Uyiriniyan",
+  title: "Siddha Doctor for Women’s Health | Uyiri Healing – Dr. Uyirinayan",
   description:
-    "Dr. Uyiriniyan is a Siddha doctor and health coach with 21 years of experience treating uterine disorders, cancer, and genetic illnesses. Book your consultation now.",
+    "Dr. Uyirinayan is a Siddha doctor and health coach with 21 years of experience treating uterine disorders, cancer, and genetic illnesses. Book your consultation now.",
   keywords: [
     "Siddha doctor",
     "uterus detox",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     google: "qlE5GSmZmIsj5HkfriP1tJesWPjxxQMGawJ_mynkb6Y",
   },
   icons: {
-    icon: "/images/uyiri-logo.png", // Make sure this file exists in /public/images/uyiri-logo.png
+    icon: "/images/uyiri-logo.png", // Ensure this file exists in /public/images/
   },
 };
 
@@ -32,16 +32,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Structured Data for Google Logo */}
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://www.uyirihealing.com" />
+
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "url": "https://www.uyirihealing.com",
-              "logo": "https://www.uyirihealing.com/logo.png",
               "name": "Uyiri Healing",
+              "url": "https://www.uyirihealing.com",
+              "logo": "https://www.uyirihealing.com/images/uyiri-logo.png",
               "sameAs": [],
             }),
           }}
@@ -53,9 +56,21 @@ export default function RootLayout({
           <BeautifulPinkBackground />
         </div>
 
-        {/* UI Content */}
+        {/* Top Navigation & Nav */}
         <Topnav />
         <Nav />
+
+        {/* Visible Branding (for Google title clarity) */}
+        <header className="text-center py-4">
+          <h1 className="text-3xl font-bold text-[#7a1335]">
+            Uyiri Healing
+          </h1>
+          <p className="text-md text-gray-600">
+            Empowering Women's Health through Traditional Siddha Medicine
+          </p>
+        </header>
+
+        {/* Main Page Content */}
         {children}
 
         {/* Footer */}
