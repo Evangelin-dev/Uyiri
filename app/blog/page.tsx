@@ -1,200 +1,150 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Calendar, Clock, ArrowRight, Sparkles, MessageCircle, Leaf, Heart } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
+import React, { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import { blogData } from "../data/blogData";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
-export default function BlogPage() {
-  const blogPosts = [
-    {
-      id: 1,
-      title: "Why Your Uterus Needs a Detox",
-      snippet:
-        "Discover the ancient Siddha wisdom behind uterine cleansing and how modern lifestyle factors affect women's reproductive health. Learn the signs that indicate your body needs a reset.",
-      image: "/placeholder.svg?height=300&width=400",
-      date: "December 15, 2024",
-      readTime: "5 min read",
-      category: "Women's Health",
-      featured: true,
-    },
-    {
-      id: 2,
-      title: "3 Signs You Need Hormonal Reset",
-      snippet:
-        "Hormonal imbalances can manifest in subtle ways. Explore the three key indicators that suggest your hormones need rebalancing through natural Siddha medicine approaches.",
-      image: "/placeholder.svg?height=300&width=400",
-      date: "December 12, 2024",
-      readTime: "4 min read",
-      category: "Hormonal Health",
-      featured: false,
-    },
-    {
-      id: 3,
-      title: "The Power of Siddha in Healing Genetic Disorders",
-      snippet:
-        "Uncover how traditional Siddha medicine addresses genetic predispositions and inherited health conditions through personalized herbal formulations and lifestyle modifications.",
-      image: "/placeholder.svg?height=300&width=400",
-      date: "December 10, 2024",
-      readTime: "7 min read",
-      category: "Siddha Medicine",
-      featured: false,
-    },
-  ]
+const Blog = () => {
+  const [openDialog, setOpenDialog] = useState<number | null>(null);
+
+  const openBlogDialog = (index: number) => setOpenDialog(index);
+  const closeBlogDialog = () => setOpenDialog(null);
 
   return (
-    <div className="min-h-screen ">
-      
-
-      {/* Hero Section */}
-      
-      <section className="py-20 ">
-        
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
-              Healing <span className="text-bright-pink">Wisdom</span> & Insights
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Explore ancient Siddha wisdom, modern wellness insights, and practical guidance for your healing journey.
-            </p>
-          </div>
+    <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Page Header */}
+        <div className="text-center mb-16 animate-fade-in">
+          <h1 className="font-montserrat font-bold text-4xl lg:text-6xl text-gray-800 mb-4">
+            Wellness{" "}
+            <span className="font-bodoni text-bright-pink">Journal</span>
+          </h1>
+          <p className="font-montserrat text-lg text-gray-600 max-w-2xl mx-auto">
+            Discover ancient wisdom for modern wellness through Siddha and
+            Ayurvedic healing practices
+          </p>
         </div>
-      </section>
 
-      {/* Featured Post */}
-      {blogPosts
-        .filter((post) => post.featured)
-        .map((post) => (
-          <section key={post.id} className="py-12 ">
-            <div className="container mx-auto px-4">
-              <div className="max-w-6xl mx-auto">
-                <Badge className="mb-4 bg-bright-pink/10 text-bright-pink hover:bg-bright-pink/20">
-                  Featured Article
-                </Badge>
-                <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-                  <div className="md:flex">
-                    <div className="md:w-1/2">
-                      <Image
-                        src={post.image || "/placeholder.svg"}
-                        alt={post.title}
-                        width={400}
-                        height={300}
-                        className="w-full h-64 md:h-full object-cover"
-                      />
-                    </div> 
-                    <div className="md:w-1/2 p-8">
-                      <div className="flex items-center gap-4 mb-4">
-                        <Badge variant="outline" className="border-bright-pink text-bright-pink">
-                          {post.category}
-                        </Badge>
-                        <div className="flex items-center text-sm text-gray-500 gap-4">
-                          <div className="flex items-center gap-1">
-                            <Calendar className="h-4 w-4" />
-                            {post.date}
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Clock className="h-4 w-4" />
-                            {post.readTime}
-                          </div>
+        {/* Blog Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogData.map((blog, index) => (
+            <div
+              key={index}
+              className="group bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 animate-scale-in"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="p-8">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="font-montserrat text-xs font-medium px-3 py-1 rounded-full text-sage-green bg-sage-green/10">
+                    {blog.location}
+                  </span>
+                  <div className="w-2 h-2 rounded-full opacity-60 bg-bright-pink"></div>
+                </div>
+
+                <h2 className="font-montserrat font-bold text-xl lg:text-2xl text-gray-800 mb-4 leading-tight group-hover:text-bright-pink transition-colors duration-300">
+                  {blog.title}
+                </h2>
+
+                <p className="font-montserrat text-gray-600 text-sm leading-relaxed mb-6">
+                  {blog.excerpt}
+                </p>
+
+                <Dialog
+                  open={openDialog === index}
+                  onOpenChange={(open) =>
+                    open ? openBlogDialog(index) : closeBlogDialog()
+                  }
+                >
+                  <DialogTrigger asChild>
+                    <button className="flex items-center gap-2 font-montserrat font-medium text-bright-pink hover:text-pink transition-colors duration-200">
+                      Read More
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-4xl max-h-[80vh] bg-white p-0">
+                    <div className="overflow-y-auto max-h-[80vh] p-6">
+                      <DialogHeader>
+                        <DialogTitle className="font-bodoni text-2xl text-gray-800 mb-2 pr-8">
+                          {blog.title}
+                        </DialogTitle>
+                        <div className="flex items-center gap-4 mb-4">
+                          <span className="font-montserrat text-xs font-medium px-3 py-1 rounded-full text-sage-green bg-sage-green/10">
+                            {blog.location}
+                          </span>
                         </div>
+                      </DialogHeader>
+
+                      <div className="space-y-6 mt-6">
+                        {blog.sections.map((section, sectionIndex) => (
+                          <div key={sectionIndex}>
+                            {section.heading && (
+                              <h3 className="font-bodoni font-semibold text-lg text-gray-800 mb-3">
+                                {section.heading}
+                              </h3>
+                            )}
+                            {section.content && (
+                              <p className="font-montserrat text-gray-600 text-sm leading-relaxed mb-4">
+                                {section.content}
+                              </p>
+                            )}
+                            {section.list && (
+                              <ul className="space-y-2 mb-4">
+                                {section.list.map((item, itemIndex) => (
+                                  <li
+                                    key={itemIndex}
+                                    className="flex items-start gap-3"
+                                  >
+                                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-bright-pink"></div>
+                                    <span className="font-montserrat text-gray-600 text-sm leading-relaxed">
+                                      {item}
+                                    </span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                            {section.testimonial && (
+                              <blockquote className="pl-6 py-4 rounded-r-lg mb-4 border-l-4 border-bright-pink bg-bright-pink/5">
+                                <p className="font-bodoni italic text-gray-700 text-sm leading-relaxed mb-2">
+                                  "{section.testimonial.quote}"
+                                </p>
+                                <cite className="font-montserrat text-xs font-medium text-sage-green">
+                                  — {section.testimonial.author}
+                                </cite>
+                              </blockquote>
+                            )}
+                            {section.callToAction && (
+                              <div className="rounded-2xl p-6 mt-6 bg-bright-pink/5">
+                                <h4 className="font-bodoni font-semibold text-lg text-gray-800 mb-2">
+                                  {section.callToAction.title}
+                                </h4>
+                                <p className="font-montserrat text-gray-600 text-sm mb-3">
+                                  {section.callToAction.description}
+                                </p>
+                                <div className="font-montserrat text-xs text-sage-green">
+                                  {section.callToAction.contact}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        ))}
                       </div>
-                      <h2 className="text-3xl font-bold text-gray-800 mb-4">{post.title}</h2>
-                      <p className="text-gray-600 mb-6 leading-relaxed">{post.snippet}</p>
-                      <Button className="bg-bright-pink hover:bg-bright-pink/90 text-white rounded-full group">
-                        Read Full Article
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
                     </div>
-                  </div>
-                </Card>
+                  </DialogContent>
+                </Dialog>
               </div>
             </div>
-          </section>
-        ))}
-
-      {/* All Posts */}
-      <section className="py-20 ">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center">
-              Latest <span className="text-bright-pink">Articles</span>
-            </h2>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts
-                .filter((post) => !post.featured)
-                .map((post) => (
-                  <Card
-                    key={post.id}
-                    className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
-                  >
-                    <div className="relative">
-                      <Image
-                        src={post.image || "/placeholder.svg"}
-                        alt={post.title}
-                        width={400}
-                        height={300}
-                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <Badge className="absolute top-4 left-4 bg-white/90 text-gray-800">{post.category}</Badge>
-                    </div>
-                    <CardContent className="p-6">
-                      <div className="flex items-center text-sm text-gray-500 gap-4 mb-3">
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-4 w-4" />
-                          {post.date}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Clock className="h-4 w-4" />
-                          {post.readTime}
-                        </div>
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-bright-pink transition-colors">
-                        {post.title}
-                      </h3>
-                      <p className="text-gray-600 mb-4 leading-relaxed">{post.snippet}</p>
-                      <Button
-                        variant="outline"
-                        className="border-bright-pink text-bright-pink hover:bg-bright-pink hover:text-white rounded-full group w-full"
-                      >
-                        Read More
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </CardContent>
-                  </Card>
-                ))}
-            </div>
-          </div>
+          ))}
         </div>
-      </section>
-
-      {/* Newsletter CTA */}
-      <section className="py-20 ">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              Stay Updated with <span className="text-bright-pink">Healing Insights</span>
-            </h2>
-            <p className="text-lg text-gray-600 mb-8">
-              Subscribe to our newsletter for the latest articles on Siddha medicine, women's health, and holistic
-              wellness.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-bright-pink"
-              />
-              <Button className="bg-bright-pink hover:bg-bright-pink/90 text-white px-8 py-3 rounded-full transition-all duration-300 hover:scale-105">
-                Subscribe
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
-  )
-}
+  );
+};
+
+export default Blog;
