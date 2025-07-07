@@ -19,8 +19,10 @@ export const metadata: Metadata = {
   verification: {
     google: "qlE5GSmZmIsj5HkfriP1tJesWPjxxQMGawJ_mynkb6Y",
   },
+  icons: {
+    icon: "/images/uyiri-logo.png", // Make sure this file exists in /public/images/uyiri-logo.png
+  },
 };
-
 
 export default function RootLayout({
   children,
@@ -29,6 +31,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Structured Data for Google Logo */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "url": "https://www.uyirihealing.com",
+              "logo": "https://www.uyirihealing.com/logo.png",
+              "name": "Uyiri Healing",
+              "sameAs": [],
+            }),
+          }}
+        />
+      </head>
       <body className="relative">
         {/* Background Layer */}
         <div className="fixed inset-0 -z-10 pointer-events-none">
