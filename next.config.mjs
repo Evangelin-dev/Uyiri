@@ -1,5 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+// next.config.mjs (ESM format)
+
+export default async () => ({
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -9,18 +10,12 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  redirects,
-};
-
-async function redirects() {
-  return [
+  redirects: async () => [
     {
       source: '/(.*)',
       has: [{ type: 'protocol', value: 'http' }],
       destination: 'https://www.uyirihealing.com/:path*',
       permanent: true,
     },
-  ];
-}
-
-export default nextConfig;
+  ],
+});
