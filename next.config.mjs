@@ -1,3 +1,5 @@
+// next.config.mjs
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
@@ -15,8 +17,8 @@ const nextConfig = {
         source: '/:path*',
         has: [
           {
-            type: 'protocol',
-            value: 'http',
+            type: 'host',
+            value: 'uyirihealing.com',
           },
         ],
         destination: 'https://www.uyirihealing.com/:path*',
